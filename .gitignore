@@ -159,3 +159,5 @@ devtools_options.yaml
 dist/
 AppDir/
 squashfs-root/
+
+note
