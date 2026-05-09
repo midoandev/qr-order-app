@@ -1,0 +1,12 @@
+{
+  "@@locale": "zh",
+  "app_title": "IPOT 订单",
+  "change_language": "更改语言",
+  "change_theme": "外观",
+  "light_mode": "浅色模式",
+  "dark_mode": "深色模式",
+  "english": "English",
+  "chinese": "中文",
+  "welcome_message": "欢迎来到 Sushi Zen",
+  "scan_button": "扫描桌位二维码"
+}

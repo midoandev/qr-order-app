@@ -1,0 +1,12 @@
+{
+  "@@locale": "en",
+  "app_title": "IPOT QR Order",
+  "change_language": "Change Language",
+  "change_theme": "Appearance",
+  "light_mode": "Light Mode",
+  "dark_mode": "Dark Mode",
+  "english": "English",
+  "chinese": "Chinese",
+  "welcome_message": "Welcome to Sushi Zen",
+  "scan_button": "Scan Table QR"
+}

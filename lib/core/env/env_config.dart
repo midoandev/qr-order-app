@@ -1,4 +1,5 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import '../di/injection.dart';
 
 class EnvConfig {
   final String baseUrl;
@@ -11,6 +12,8 @@ class EnvConfig {
     required this.isMock,
   });
 }
+
+EnvConfig get env => getIt<EnvConfig>();
 
 class Env {
   static late EnvConfig config;
