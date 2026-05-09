@@ -157,4 +157,5 @@ dist/
 AppDir/
 squashfs-root/
 
+.env
 note
