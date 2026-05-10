@@ -1,7 +1,10 @@
 import '../../domain/entities/customization_item_entity.dart';
 
-class CustomizationItemModel extends CustomizationItemEntity {
-  CustomizationItemModel({required super.optionId, required super.quantity});
+class CustomizationItemModel {
+  final int optionId;
+  int quantity;
+
+  CustomizationItemModel({required this.optionId, required this.quantity});
 
   factory CustomizationItemModel.fromEntity(CustomizationItemEntity entity) {
     return CustomizationItemModel(
@@ -14,4 +17,8 @@ class CustomizationItemModel extends CustomizationItemEntity {
     "option_id": optionId,
     "quantity": quantity,
   };
+
+  CustomizationItemEntity toEntity() {
+    return CustomizationItemEntity(optionId: optionId, quantity: quantity);
+  }
 }

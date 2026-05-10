@@ -3,11 +3,11 @@ import 'package:qrorder/domain/entities/order_entity.dart';
 import '../../core/networks/error/failure.dart';
 import '../../domain/entities/order_request_entity.dart';
 import '../../domain/repositories/order_repository.dart';
-import '../datasources/order_remote_data_source.dart';
+import '../datasources/ordering_remote_data_source.dart';
 import '../models/order_request_model.dart';
 
 class OrderRepositoryImpl implements OrderRepository {
-  final OrderRemoteDataSource _remoteDataSource;
+  final OrderingRemoteDataSource _remoteDataSource;
 
   OrderRepositoryImpl(this._remoteDataSource);
 
