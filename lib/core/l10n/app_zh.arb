@@ -1,5 +1,6 @@
 {
   "@@locale": "zh",
+  "back": "后退",
   "app_title": "IPOT 订单",
   "change_language": "更改语言",
   "change_theme": "外观",
@@ -8,5 +9,14 @@
   "english": "English",
   "chinese": "中文",
   "welcome_message": "欢迎来到 Sushi Zen",
-  "scan_button": "扫描桌位二维码"
+  "scan_button": "扫描桌位二维码",
+  "error_controller": "扫描控制器未 saing.",
+  "error_permission": "相机权限 dipindah.",
+  "error_generic": "发生未知错误。",
+  "error_unsupported": "平台不支持。",
+  "error_no_camera": "未检测到相机。",
+  "table_label": "Meja",
+  "empty_menu": "Menu tidak tersedia saat ini.",
+  "menu_error": "加载菜单失败",
+  "menu_retry": "重试"
 }

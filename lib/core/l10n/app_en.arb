@@ -1,5 +1,6 @@
 {
   "@@locale": "en",
+  "back": "Back",
   "app_title": "IPOT QR Order",
   "change_language": "Change Language",
   "change_theme": "Appearance",
@@ -8,5 +9,14 @@
   "english": "English",
   "chinese": "Chinese",
   "welcome_message": "Welcome to Sushi Zen",
-  "scan_button": "Scan Table QR"
+  "scan_button": "Scan Table QR",
+  "error_controller": "Scanner controller not ready.",
+  "error_permission": "Camera permission denied.",
+  "error_generic": "An unexpected error occurred.",
+  "error_unsupported": "Platform not supported.",
+  "error_no_camera": "No camera detected.",
+  "table_label": "Table",
+  "empty_menu": "Menu is currently unavailable.",
+  "menu_error": "Failed to load menu",
+  "menu_retry": "Retry"
 }
