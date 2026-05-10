@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../core/extensions/context_extension.dart';
-import '../cubits/settings/settings_cubit.dart';
-import '../cubits/settings/settings_state.dart';
+import 'package:go_router/go_router.dart';
+import 'package:qrorder/presentation/scanner/scanner_page.dart';
+import '../../core/extensions/localizations_extension.dart';
+import '../../core/extensions/theme_extention.dart';
+import '../settings/settings_cubit.dart';
+import '../settings/settings_state.dart';
 
 class HomePage extends StatelessWidget {
+  static const String route = '/';
   const HomePage({super.key});
 
   @override
@@ -40,7 +44,9 @@ class HomePage extends StatelessWidget {
             ),
             const SizedBox(height: 32),
             ElevatedButton.icon(
-              onPressed: () {},
+              onPressed: () {
+                context.push(ScannerPage.route);
+              },
               icon: const Icon(Icons.camera_alt),
               label: Text(context.s.scan_button),
               style: ElevatedButton.styleFrom(

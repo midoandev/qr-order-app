@@ -97,6 +97,12 @@ abstract class S {
     Locale('zh'),
   ];
 
+  /// No description provided for @back.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get back;
+
   /// No description provided for @app_title.
   ///
   /// In en, this message translates to:
@@ -150,6 +156,60 @@ abstract class S {
   /// In en, this message translates to:
   /// **'Scan Table QR'**
   String get scan_button;
+
+  /// No description provided for @error_controller.
+  ///
+  /// In en, this message translates to:
+  /// **'Scanner controller not ready.'**
+  String get error_controller;
+
+  /// No description provided for @error_permission.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera permission denied.'**
+  String get error_permission;
+
+  /// No description provided for @error_generic.
+  ///
+  /// In en, this message translates to:
+  /// **'An unexpected error occurred.'**
+  String get error_generic;
+
+  /// No description provided for @error_unsupported.
+  ///
+  /// In en, this message translates to:
+  /// **'Platform not supported.'**
+  String get error_unsupported;
+
+  /// No description provided for @error_no_camera.
+  ///
+  /// In en, this message translates to:
+  /// **'No camera detected.'**
+  String get error_no_camera;
+
+  /// No description provided for @table_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Table'**
+  String get table_label;
+
+  /// No description provided for @empty_menu.
+  ///
+  /// In en, this message translates to:
+  /// **'Menu is currently unavailable.'**
+  String get empty_menu;
+
+  /// No description provided for @menu_error.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load menu'**
+  String get menu_error;
+
+  /// No description provided for @menu_retry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get menu_retry;
 }
 
 class _SDelegate extends LocalizationsDelegate<S> {

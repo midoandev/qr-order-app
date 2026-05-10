@@ -9,6 +9,9 @@ class SEn extends S {
   SEn([String locale = 'en']) : super(locale);
 
   @override
+  String get back => 'Back';
+
+  @override
   String get app_title => 'IPOT QR Order';
 
   @override
@@ -34,4 +37,31 @@ class SEn extends S {
 
   @override
   String get scan_button => 'Scan Table QR';
+
+  @override
+  String get error_controller => 'Scanner controller not ready.';
+
+  @override
+  String get error_permission => 'Camera permission denied.';
+
+  @override
+  String get error_generic => 'An unexpected error occurred.';
+
+  @override
+  String get error_unsupported => 'Platform not supported.';
+
+  @override
+  String get error_no_camera => 'No camera detected.';
+
+  @override
+  String get table_label => 'Table';
+
+  @override
+  String get empty_menu => 'Menu is currently unavailable.';
+
+  @override
+  String get menu_error => 'Failed to load menu';
+
+  @override
+  String get menu_retry => 'Retry';
 }
