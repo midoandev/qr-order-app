@@ -51,8 +51,6 @@ class _ScannerPageState extends State<ScannerPage> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(context.s.scan_button),
-          backgroundColor: Colors.transparent,
-          elevation: 0,
         ),
         backgroundColor: Colors.black,
         body: Builder(

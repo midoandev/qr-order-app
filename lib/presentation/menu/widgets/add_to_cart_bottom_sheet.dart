@@ -76,7 +76,7 @@ class _AddToCartBottomSheetState extends State<AddToCartBottomSheet> {
         bottom: context.viewInsets.bottom + 24,
         top: 16,
       ),
-      constraints: BoxConstraints(maxHeight: context.screenHeight * 0.85, minHeight: context.screenHeight * .5),
+      constraints: BoxConstraints(maxHeight: context.screenHeight * 0.8, minHeight: context.screenHeight * .3),
       decoration: BoxDecoration(
         color: context.colorScheme.surface,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(32)),
@@ -99,12 +99,12 @@ class _AddToCartBottomSheetState extends State<AddToCartBottomSheet> {
             child: SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _buildHeader(context),
                   const Divider(height: 32),
 
-                  // Menampilkan Customization Groups jika tersedia
                   if (widget.menu.customizationGroups.isNotEmpty) ...[
                     CustomizationSelectorWidget(
                       groups: widget.menu.customizationGroups,
@@ -124,16 +124,18 @@ class _AddToCartBottomSheetState extends State<AddToCartBottomSheet> {
                       hintText: context.s.notes_hint,
                       filled: true,
                       fillColor: context.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(16), borderSide: BorderSide.none),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16),
+                        borderSide: BorderSide.none,
+                      ),
                     ),
                     maxLines: 2,
                   ),
-                  const SizedBox(height: 100), // Spacer untuk bottom bar
+                  const SizedBox(height: 24),
                 ],
               ),
             ),
           ),
-
           _buildBottomAction(context),
         ],
       ),
