@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:qrorder/core/networks/error/failure.dart';
 import 'package:qrorder/domain/entities/menu_data_entity.dart';
+import 'package:qrorder/domain/entities/menu_entity.dart';
 import 'package:qrorder/domain/entities/restaurant_entity.dart';
 import 'package:qrorder/domain/entities/category_entity.dart';
 import 'package:qrorder/domain/usecases/get_menu_use_case.dart';
@@ -26,14 +27,22 @@ void main() {
   });
 
   const tTableId = 'T001';
-  const tMenuDataEntity = MenuDataEntity(
-    restaurant: RestaurantEntity(
+  final items = MenuEntity(
+    id: 1,
+    name: 'Salmon Sashimi',
+    description: 'Fresh Salmon',
+    price: 15.0,
+    categoryId: 1,
+    customizationGroups: [],
+  );
+  final tMenuDataEntity = MenuDataEntity(
+    restaurant: const RestaurantEntity(
       id: 'R001',
       name: 'Sushi Zen',
       tableId: tTableId,
     ),
-    categories: [CategoryEntity(id: 1, name: 'Main', sortOrder: 1)],
-    items: [],
+    categories: [const CategoryEntity(id: 1, name: 'Main', sortOrder: 1)],
+    items: [items],
   );
 
   test('first state should be MenuInitial', () {
@@ -45,11 +54,11 @@ void main() {
     build: () {
       when(
         () => mockGetMenuUseCase.execute(any()),
-      ).thenAnswer((_) async => const Right(tMenuDataEntity));
+      ).thenAnswer((_) async => Right(tMenuDataEntity));
       return cubit;
     },
     act: (cubit) => cubit.fetchMenu(tTableId),
-    expect: () => [MenuLoading(), const MenuLoaded(tMenuDataEntity)],
+    expect: () => [MenuLoading(), MenuLoaded(tMenuDataEntity)],
     verify: (_) {
       verify(() => mockGetMenuUseCase.execute(tTableId)).called(1);
     },
@@ -58,15 +67,13 @@ void main() {
   blocTest<MenuCubit, MenuState>(
     'harus emit [MenuLoading, MenuLoaded] ketika data berhasil diambil dan tidak kosong',
     build: () {
-      when(() => mockGetMenuUseCase.execute(any()))
-          .thenAnswer((_) async => const Right(tMenuDataEntity));
+      when(
+        () => mockGetMenuUseCase.execute(any()),
+      ).thenAnswer((_) async => Right(tMenuDataEntity));
       return cubit;
     },
     act: (cubit) => cubit.fetchMenu(tTableId),
-    expect: () => [
-      MenuLoading(),
-      const MenuLoaded(tMenuDataEntity),
-    ],
+    expect: () => [MenuLoading(), MenuLoaded(tMenuDataEntity)],
     verify: (_) {
       verify(() => mockGetMenuUseCase.execute(tTableId)).called(1);
     },

@@ -16,8 +16,6 @@ class MenuCubit extends Cubit<MenuState> {
       if (menuData.categories.isEmpty || menuData.items.isEmpty) {
         emit(MenuEmpty());
       } else {
-        // Sort category berdasar sortOrder
-        menuData.categories.sort((a, b) => a.sortOrder.compareTo(b.sortOrder));
         emit(MenuLoaded(menuData));
       }
     });

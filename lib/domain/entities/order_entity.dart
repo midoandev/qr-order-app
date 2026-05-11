@@ -14,4 +14,20 @@ class OrderEntity {
     this.customerNote,
     this.estimatedTime,
   });
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is OrderEntity &&
+          runtimeType == other.runtimeType &&
+          id == other.id &&
+          tableId == other.tableId &&
+          status == other.status &&
+          totalPrice == other.totalPrice &&
+          customerNote == other.customerNote &&
+          estimatedTime == other.estimatedTime;
+
+  @override
+  int get hashCode =>
+      Object.hash(id, tableId, status, totalPrice, customerNote, estimatedTime);
 }

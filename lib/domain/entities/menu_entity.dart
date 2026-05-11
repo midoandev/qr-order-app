@@ -18,4 +18,26 @@ class MenuEntity {
     this.imageUrl,
     required this.customizationGroups,
   });
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+          other is MenuEntity && runtimeType == other.runtimeType &&
+              id == other.id && name == other.name &&
+              description == other.description && price == other.price &&
+              categoryId == other.categoryId && imageUrl == other.imageUrl &&
+              customizationGroups == other.customizationGroups;
+
+  @override
+  int get hashCode =>
+      Object.hash(
+          id,
+          name,
+          description,
+          price,
+          categoryId,
+          imageUrl,
+          customizationGroups);
+
+
 }

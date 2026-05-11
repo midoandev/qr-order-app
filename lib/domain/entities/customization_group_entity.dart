@@ -14,4 +14,18 @@ class CustomizationGroupEntity {
     required this.maxSelections,
     required this.options,
   });
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is CustomizationGroupEntity &&
+          runtimeType == other.runtimeType &&
+          id == other.id &&
+          name == other.name &&
+          isRequired == other.isRequired &&
+          maxSelections == other.maxSelections &&
+          options == other.options;
+
+  @override
+  int get hashCode => Object.hash(id, name, isRequired, maxSelections, options);
 }

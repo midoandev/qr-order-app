@@ -12,4 +12,16 @@ class MenuDataEntity {
     required this.categories,
     required this.items,
   });
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MenuDataEntity &&
+          runtimeType == other.runtimeType &&
+          restaurant == other.restaurant &&
+          categories == other.categories &&
+          items == other.items;
+
+  @override
+  int get hashCode => Object.hash(restaurant, categories, items);
 }

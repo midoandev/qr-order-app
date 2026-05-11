@@ -10,4 +10,16 @@ class OrderRequestEntity {
     required this.items,
     this.customerNote,
   });
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is OrderRequestEntity &&
+          runtimeType == other.runtimeType &&
+          tableId == other.tableId &&
+          items == other.items &&
+          customerNote == other.customerNote;
+
+  @override
+  int get hashCode => Object.hash(tableId, items, customerNote);
 }
