@@ -13,7 +13,7 @@ void main() {
 
   setUp(() {
     mockAssetBundle = MockAssetBundle();
-    dataSource = OrderingRemoteDataSource(mockAssetBundle);
+    dataSource = OrderingRemoteDataSourceImpl(mockAssetBundle);
   });
 
   const tTableId = 'T001';
