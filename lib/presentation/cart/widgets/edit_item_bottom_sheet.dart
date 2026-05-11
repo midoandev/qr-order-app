@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import '../../../core/extensions/localizations_extension.dart';
 import '../../../domain/entities/cart_item_entity.dart';
 import '../../../domain/entities/customization_option_entity.dart';
 import '../../widgets/customization_selector_widget.dart';
-import '../cubits/cart_cubit.dart';
 
 class EditItemBottomSheet extends StatefulWidget {
   final CartItemEntity item;

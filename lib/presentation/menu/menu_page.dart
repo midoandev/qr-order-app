@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:qrorder/presentation/home/home_page.dart';
 import 'package:qrorder/presentation/menu/widgets/cart_badge_fab.dart';
 
 import '../../core/extensions/localizations_extension.dart';

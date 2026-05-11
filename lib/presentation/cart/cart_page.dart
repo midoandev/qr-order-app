@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:qrorder/presentation/cart/widgets/cart_item_action_wrapper.dart';
-import 'package:qrorder/presentation/cart/widgets/edit_item_bottom_sheet.dart';
 
 import '../../core/extensions/localizations_extension.dart';
 import '../../core/extensions/theme_extention.dart';
 import 'cubits/cart_cubit.dart';
 import 'cubits/cart_state.dart';
-import 'widgets/cart_tile.dart';
 
 class CartPage extends StatefulWidget {
   final String tableId;
@@ -86,7 +84,7 @@ class _CartPageState extends State<CartPage> {
           child: ListView.separated(
             padding: const EdgeInsets.all(16),
             itemCount: state.cart.items.length,
-            separatorBuilder: (_, __) => const SizedBox(height: 12),
+            separatorBuilder: (_, _) => const SizedBox(height: 12),
             itemBuilder: (context, index) {
               final item = state.cart.items[index];
               return CartItemActionWrapper(item: item, tableId: widget.tableId);
