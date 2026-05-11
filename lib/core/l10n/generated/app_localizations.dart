@@ -210,6 +210,120 @@ abstract class S {
   /// In en, this message translates to:
   /// **'Retry'**
   String get menu_retry;
+
+  /// No description provided for @title_cart.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Cart'**
+  String get title_cart;
+
+  /// No description provided for @add_button.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get add_button;
+
+  /// No description provided for @empty_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Your cart is empty'**
+  String get empty_message;
+
+  /// No description provided for @back_to_menu.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to Menu'**
+  String get back_to_menu;
+
+  /// No description provided for @subtotal.
+  ///
+  /// In en, this message translates to:
+  /// **'Subtotal'**
+  String get subtotal;
+
+  /// No description provided for @tax.
+  ///
+  /// In en, this message translates to:
+  /// **'Tax (11%)'**
+  String get tax;
+
+  /// No description provided for @total.
+  ///
+  /// In en, this message translates to:
+  /// **'Grand Total'**
+  String get total;
+
+  /// No description provided for @checkout.
+  ///
+  /// In en, this message translates to:
+  /// **'Proceed to Checkout'**
+  String get checkout;
+
+  /// No description provided for @view_cart.
+  ///
+  /// In en, this message translates to:
+  /// **'View Cart'**
+  String get view_cart;
+
+  /// No description provided for @items_count.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} Items'**
+  String items_count(int count);
+
+  /// No description provided for @notes_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get notes_label;
+
+  /// No description provided for @notes_hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Example: No onions, spicy please...'**
+  String get notes_hint;
+
+  /// No description provided for @required_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Required'**
+  String get required_label;
+
+  /// No description provided for @free_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Free'**
+  String get free_label;
+
+  /// No description provided for @add_to_cart.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to Cart'**
+  String get add_to_cart;
+
+  /// No description provided for @spice_level.
+  ///
+  /// In en, this message translates to:
+  /// **'Spice Level'**
+  String get spice_level;
+
+  /// No description provided for @add_ons.
+  ///
+  /// In en, this message translates to:
+  /// **'Add-ons'**
+  String get add_ons;
+
+  /// No description provided for @save_changes.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Changes'**
+  String get save_changes;
+
+  /// No description provided for @edit_item.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Item'**
+  String get edit_item;
 }
 
 class _SDelegate extends LocalizationsDelegate<S> {

@@ -18,5 +18,31 @@
   "table_label": "Table",
   "empty_menu": "Menu is currently unavailable.",
   "menu_error": "Failed to load menu",
-  "menu_retry": "Retry"
+  "menu_retry": "Retry",
+  "title_cart": "Your Cart",
+  "add_button": "Add",
+  "empty_message": "Your cart is empty",
+  "back_to_menu": "Back to Menu",
+  "subtotal": "Subtotal",
+  "tax": "Tax (11%)",
+  "total": "Grand Total",
+  "checkout": "Proceed to Checkout",
+  "view_cart": "View Cart",
+  "items_count": "{count} Items",
+  "@items_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "notes_label": "Notes",
+  "notes_hint": "Example: No onions, spicy please...",
+  "required_label": "Required",
+  "free_label": "Free",
+  "add_to_cart": "Add to Cart",
+  "spice_level": "Spice Level",
+  "add_ons": "Add-ons",
+  "save_changes": "Save Changes",
+  "edit_item": "Edit Item"
 }

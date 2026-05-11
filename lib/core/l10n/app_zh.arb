@@ -18,5 +18,31 @@
   "table_label": "Meja",
   "empty_menu": "Menu tidak tersedia saat ini.",
   "menu_error": "加载菜单失败",
-  "menu_retry": "重试"
+  "menu_retry": "重试",
+  "title_cart": "您的购物车",
+  "add_button": "添加",
+  "empty_message": "您的购物车为空",
+  "back_to_menu": "返回菜单",
+  "subtotal": "小计",
+  "tax": "税 (11%)",
+  "total": "总计",
+  "checkout": "去结账",
+  "view_cart": "查看购物车",
+  "items_count": "{count} 件商品",
+  "@items_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "notes_label": "备注",
+  "notes_hint": "例如：不要洋葱，请加辣...",
+  "required_label": "必选",
+  "free_label": "免费",
+  "add_to_cart": "加入购物车",
+  "spice_level": "辣度",
+  "add_ons": "加料",
+  "save_changes": "保存更改",
+  "edit_item": "编辑项目"
 }

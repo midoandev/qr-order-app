@@ -64,4 +64,63 @@ class SEn extends S {
 
   @override
   String get menu_retry => 'Retry';
+
+  @override
+  String get title_cart => 'Your Cart';
+
+  @override
+  String get add_button => 'Add';
+
+  @override
+  String get empty_message => 'Your cart is empty';
+
+  @override
+  String get back_to_menu => 'Back to Menu';
+
+  @override
+  String get subtotal => 'Subtotal';
+
+  @override
+  String get tax => 'Tax (11%)';
+
+  @override
+  String get total => 'Grand Total';
+
+  @override
+  String get checkout => 'Proceed to Checkout';
+
+  @override
+  String get view_cart => 'View Cart';
+
+  @override
+  String items_count(int count) {
+    return '$count Items';
+  }
+
+  @override
+  String get notes_label => 'Notes';
+
+  @override
+  String get notes_hint => 'Example: No onions, spicy please...';
+
+  @override
+  String get required_label => 'Required';
+
+  @override
+  String get free_label => 'Free';
+
+  @override
+  String get add_to_cart => 'Add to Cart';
+
+  @override
+  String get spice_level => 'Spice Level';
+
+  @override
+  String get add_ons => 'Add-ons';
+
+  @override
+  String get save_changes => 'Save Changes';
+
+  @override
+  String get edit_item => 'Edit Item';
 }

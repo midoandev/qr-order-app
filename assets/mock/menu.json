@@ -5,9 +5,26 @@
     "table_id": "T001"
   },
   "categories": [
-    { "id": 1, "name": "Appetizers", "sort_order": 1 },
-    { "id": 2, "name": "Main Course", "sort_order": 2 },
-    { "id": 3, "name": "Drinks", "sort_order": 3 }
+    {
+      "id": 1,
+      "name": "Appetizers",
+      "sort_order": 1
+    },
+    {
+      "id": 2,
+      "name": "Main Course",
+      "sort_order": 2
+    },
+    {
+      "id": 3,
+      "name": "Drinks",
+      "sort_order": 3
+    },
+    {
+      "id": 4,
+      "name": "Desserts",
+      "sort_order": 4
+    }
   ],
   "items": [
     {
@@ -24,9 +41,21 @@
           "required": false,
           "max_selections": 2,
           "options": [
-            { "id": 1, "name": "Sea Salt",     "price_modifier": 0 },
-            { "id": 2, "name": "Truffle Salt", "price_modifier": 1.50 },
-            { "id": 3, "name": "Chili Flakes", "price_modifier": 0.50 }
+            {
+              "id": 1,
+              "name": "Sea Salt",
+              "price_modifier": 0
+            },
+            {
+              "id": 2,
+              "name": "Truffle Salt",
+              "price_modifier": 1.50
+            },
+            {
+              "id": 3,
+              "name": "Chili Flakes",
+              "price_modifier": 0.50
+            }
           ]
         }
       ]
@@ -45,8 +74,16 @@
           "required": true,
           "max_selections": 1,
           "options": [
-            { "id": 4, "name": "Regular (8pc)", "price_modifier": 0 },
-            { "id": 5, "name": "Large (12pc)",  "price_modifier": 8.00 }
+            {
+              "id": 4,
+              "name": "Regular (8pc)",
+              "price_modifier": 0
+            },
+            {
+              "id": 5,
+              "name": "Large (12pc)",
+              "price_modifier": 8.00
+            }
           ]
         }
       ]
@@ -74,10 +111,26 @@
           "required": true,
           "max_selections": 1,
           "options": [
-            { "id": 6,  "name": "Mild",        "price_modifier": 0 },
-            { "id": 7,  "name": "Medium",       "price_modifier": 0 },
-            { "id": 8,  "name": "Spicy",        "price_modifier": 0 },
-            { "id": 9,  "name": "Extra Spicy",  "price_modifier": 1.00 }
+            {
+              "id": 6,
+              "name": "Mild",
+              "price_modifier": 0
+            },
+            {
+              "id": 7,
+              "name": "Medium",
+              "price_modifier": 0
+            },
+            {
+              "id": 8,
+              "name": "Spicy",
+              "price_modifier": 0
+            },
+            {
+              "id": 9,
+              "name": "Extra Spicy",
+              "price_modifier": 1.00
+            }
           ]
         },
         {
@@ -86,9 +139,142 @@
           "required": false,
           "max_selections": 3,
           "options": [
-            { "id": 10, "name": "Extra Egg",    "price_modifier": 2.00 },
-            { "id": 11, "name": "Extra Chashu", "price_modifier": 4.00 },
-            { "id": 12, "name": "Corn",         "price_modifier": 1.00 }
+            {
+              "id": 10,
+              "name": "Extra Egg",
+              "price_modifier": 2.00
+            },
+            {
+              "id": 11,
+              "name": "Extra Chashu",
+              "price_modifier": 4.00
+            },
+            {
+              "id": 12,
+              "name": "Corn",
+              "price_modifier": 1.00
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Mochi Ice Cream",
+      "description": "Choice of Vanilla, Matcha, or Strawberry",
+      "price": 6.00,
+      "category_id": 4,
+      "image_url": null,
+      "customization_groups": []
+    },
+    {
+      "id": 5,
+      "name": "Wagyu Beef Burger",
+      "description": "Premium wagyu patty with melted cheddar, caramelized onions, and truffle mayo",
+      "price": 18.50,
+      "category_id": 1,
+      "image_url": "https://example.com",
+      "customization_groups": [
+        {
+          "id": 5,
+          "name": "Doneness",
+          "required": true,
+          "max_selections": 1,
+          "options": [
+            {
+              "id": 13,
+              "name": "Medium Rare",
+              "price_modifier": 0
+            },
+            {
+              "id": 14,
+              "name": "Medium",
+              "price_modifier": 0
+            },
+            {
+              "id": 15,
+              "name": "Well Done",
+              "price_modifier": 0
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "name": "Extra Toppings",
+          "required": false,
+          "max_selections": 2,
+          "options": [
+            {
+              "id": 16,
+              "name": "Crispy Bacon",
+              "price_modifier": 3.00
+            },
+            {
+              "id": 17,
+              "name": "Avocado",
+              "price_modifier": 2.50
+            },
+            {
+              "id": 18,
+              "name": "Extra Cheese",
+              "price_modifier": 1.50
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Iced Matcha Latte",
+      "description": "Ceremonial grade matcha whisked with creamy milk and honey",
+      "price": 6.50,
+      "category_id": 4,
+      "image_url": null,
+      "customization_groups": [
+        {
+          "id": 7,
+          "name": "Milk Choice",
+          "required": true,
+          "max_selections": 1,
+          "options": [
+            {
+              "id": 19,
+              "name": "Full Cream Milk",
+              "price_modifier": 0
+            },
+            {
+              "id": 20,
+              "name": "Oat Milk",
+              "price_modifier": 1.50
+            },
+            {
+              "id": 21,
+              "name": "Almond Milk",
+              "price_modifier": 1.50
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "name": "Sweetness Level",
+          "required": true,
+          "max_selections": 1,
+          "options": [
+            {
+              "id": 22,
+              "name": "No Sugar",
+              "price_modifier": 0
+            },
+            {
+              "id": 23,
+              "name": "Less Sugar",
+              "price_modifier": 0
+            },
+            {
+              "id": 24,
+              "name": "Normal Sugar",
+              "price_modifier": 0
+            }
           ]
         }
       ]

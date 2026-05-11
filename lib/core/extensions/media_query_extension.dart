@@ -6,6 +6,7 @@ extension MediaQueryExtension on BuildContext {
 
   double get screenWidth => mq.size.width;
   double get screenHeight => mq.size.height;
+  EdgeInsets get viewInsets => mq.viewInsets;
 
   double get paddingTop => mq.padding.top;
   double get paddingBottom => mq.padding.bottom;

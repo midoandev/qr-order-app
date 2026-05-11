@@ -64,4 +64,63 @@ class SZh extends S {
 
   @override
   String get menu_retry => '重试';
+
+  @override
+  String get title_cart => '您的购物车';
+
+  @override
+  String get add_button => '添加';
+
+  @override
+  String get empty_message => '您的购物车为空';
+
+  @override
+  String get back_to_menu => '返回菜单';
+
+  @override
+  String get subtotal => '小计';
+
+  @override
+  String get tax => '税 (11%)';
+
+  @override
+  String get total => '总计';
+
+  @override
+  String get checkout => '去结账';
+
+  @override
+  String get view_cart => '查看购物车';
+
+  @override
+  String items_count(int count) {
+    return '$count 件商品';
+  }
+
+  @override
+  String get notes_label => '备注';
+
+  @override
+  String get notes_hint => '例如：不要洋葱，请加辣...';
+
+  @override
+  String get required_label => '必选';
+
+  @override
+  String get free_label => '免费';
+
+  @override
+  String get add_to_cart => '加入购物车';
+
+  @override
+  String get spice_level => '辣度';
+
+  @override
+  String get add_ons => '加料';
+
+  @override
+  String get save_changes => '保存更改';
+
+  @override
+  String get edit_item => '编辑项目';
 }
