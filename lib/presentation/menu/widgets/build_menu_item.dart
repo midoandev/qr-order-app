@@ -5,8 +5,9 @@ import '../../../domain/entities/menu_entity.dart';
 
 class BuildMenuItem extends StatelessWidget {
   final MenuEntity item;
+  final VoidCallback? onTap;
 
-  const BuildMenuItem({super.key, required this.item});
+  const BuildMenuItem({super.key, required this.item, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +29,7 @@ class BuildMenuItem extends StatelessWidget {
               style: TextStyle(color: context.colorScheme.onSurfaceVariant),
             ),
           ),
+          leading: const Icon(Icons.add_circle_outline),
           trailing: Text(
             '\$${item.price.toStringAsFixed(2)}',
             style: TextStyle(
@@ -36,9 +38,7 @@ class BuildMenuItem extends StatelessWidget {
               color: context.colorScheme.primary,
             ),
           ),
-          onTap: () {
-            // Trigger Add to Cart atau Modal Detail Kustomisasi
-          },
+          onTap: onTap,
         ),
         Divider(
           height: 1,

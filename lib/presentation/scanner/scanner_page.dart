@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:go_router/go_router.dart';
+import 'package:qrorder/presentation/menu/menu_page.dart';
 import '../../core/extensions/localizations_extension.dart';
 import '../../core/extensions/theme_extention.dart';
 import 'widgets/scanner_error_widget.dart';
@@ -42,7 +43,7 @@ class _ScannerPageState extends State<ScannerPage> {
           _isNavigating = true;
           await controller.stop();
           if (context.mounted) {
-            context.pushReplacement('/menu/${state.tableId}');
+            context.pushReplacement(MenuPage.route, extra: state.tableId);
             await controller.pause();
           }
         }

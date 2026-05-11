@@ -8,10 +8,12 @@ import 'build_menu_item.dart';
 class BuildCategoryGroup extends StatelessWidget {
   final CategoryEntity category;
   final List<MenuEntity> items;
+  final Function(MenuEntity item) onItemTap;
 
   const BuildCategoryGroup({
     super.key,
     required this.category,
+    required this.onItemTap,
     required this.items,
   });
 
@@ -29,6 +31,7 @@ class BuildCategoryGroup extends StatelessWidget {
         ),
         clipBehavior: Clip.antiAlias,
         child: ExpansionTile(
+          // childrenPadding: EdgeInsets.zero,
           initiallyExpanded: true,
           shape: const Border(),
           title: Text(
@@ -39,7 +42,12 @@ class BuildCategoryGroup extends StatelessWidget {
           ),
           backgroundColor: context.colorScheme.surfaceContainerHighest
               .withValues(alpha: 0.3),
-          children: items.map((item) => BuildMenuItem(item: item)).toList(),
+          children: items
+              .map(
+                (item) =>
+                    BuildMenuItem(item: item, onTap: () => onItemTap(item)),
+              )
+              .toList(),
         ),
       ),
     );

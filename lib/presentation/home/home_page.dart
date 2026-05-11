@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:qrorder/presentation/scanner/scanner_page.dart';
 import '../../core/extensions/localizations_extension.dart';
 import '../../core/extensions/theme_extention.dart';
+import '../scanner/scanner_page.dart';
 import '../settings/settings_cubit.dart';
 import '../settings/settings_state.dart';
 
 class HomePage extends StatelessWidget {
   static const String route = '/';
+
   const HomePage({super.key});
 
   @override
@@ -20,9 +21,9 @@ class HomePage extends StatelessWidget {
         actions: [
           IconButton(
             icon: Icon(
-                settingsState.themeMode == ThemeMode.dark
-                    ? Icons.dark_mode
-                    : Icons.light_mode
+              settingsState.themeMode == ThemeMode.dark
+                  ? Icons.dark_mode
+                  : Icons.light_mode,
             ),
             onPressed: () => _showSettingsBottomSheet(context),
           ),
@@ -46,11 +47,16 @@ class HomePage extends StatelessWidget {
             ElevatedButton.icon(
               onPressed: () {
                 context.push(ScannerPage.route);
+                //if ios simulator use this
+                // context.pushReplacement(MenuPage.route, extra: 'T001');
               },
               icon: const Icon(Icons.camera_alt),
               label: Text(context.s.scan_button),
               style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 32,
+                  vertical: 16,
+                ),
               ),
             ),
           ],
@@ -73,7 +79,10 @@ class HomePage extends StatelessWidget {
           child: BlocBuilder<SettingsCubit, SettingsState>(
             builder: (context, state) {
               return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 24,
+                ),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -97,7 +106,9 @@ class HomePage extends StatelessWidget {
                       ],
                       selected: {state.themeMode},
                       onSelectionChanged: (Set<ThemeMode> newSelection) {
-                        context.read<SettingsCubit>().toggleTheme(newSelection.first);
+                        context.read<SettingsCubit>().toggleTheme(
+                          newSelection.first,
+                        );
                       },
                     ),
                     const Divider(height: 48),
@@ -108,9 +119,15 @@ class HomePage extends StatelessWidget {
                     const SizedBox(height: 16),
                     ListTile(
                       title: Text(context.s.english),
-                      leading: const Text("🇺🇸", style: TextStyle(fontSize: 24)),
+                      leading: const Text(
+                        "🇺🇸",
+                        style: TextStyle(fontSize: 24),
+                      ),
                       trailing: context.isEn
-                          ? Icon(Icons.check_circle, color: context.colorScheme.primary)
+                          ? Icon(
+                              Icons.check_circle,
+                              color: context.colorScheme.primary,
+                            )
                           : null,
                       onTap: () {
                         context.read<SettingsCubit>().changeLanguage('en');
@@ -119,9 +136,16 @@ class HomePage extends StatelessWidget {
                     ),
                     ListTile(
                       title: Text(context.s.chinese),
-                      leading: const Text("🇨🇳", style: TextStyle(fontSize: 24)),
+                      leading: const Text(
+                        "🇨🇳",
+                        style: TextStyle(fontSize: 24),
+                      ),
                       trailing: context.isEn
-                          ? null : Icon(Icons.check_circle, color: context.colorScheme.primary),
+                          ? null
+                          : Icon(
+                              Icons.check_circle,
+                              color: context.colorScheme.primary,
+                            ),
                       onTap: () {
                         context.read<SettingsCubit>().changeLanguage('zh');
                         Navigator.pop(context);
@@ -137,5 +161,4 @@ class HomePage extends StatelessWidget {
       },
     );
   }
-
 }

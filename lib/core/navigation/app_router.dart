@@ -1,5 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:qrorder/presentation/cart/cart_page.dart';
+import 'package:qrorder/presentation/cart/cubits/cart_cubit.dart';
 
 import '../../presentation/home/home_page.dart';
 import '../../presentation/menu/cubits/menu_cubit.dart';
@@ -26,10 +28,23 @@ class AppRouter {
       GoRoute(
         path: MenuPage.route,
         builder: (context, state) {
-          final tableId = state.pathParameters['tableId'] ?? '';
-          return BlocProvider(
-            create: (_) => getIt<MenuCubit>(),
+          final tableId = state.extra as String;
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider(create: (_) => getIt<MenuCubit>()),
+              BlocProvider(create: (_) => getIt<CartCubit>()),
+            ],
             child: MenuPage(tableId: tableId),
+          );
+        },
+      ),
+      GoRoute(
+        path: CartPage.route,
+        builder: (context, state) {
+          final tableId = state.extra as String;
+          return BlocProvider(
+            create: (_) => getIt<CartCubit>(),
+            child: CartPage(tableId: tableId),
           );
         },
       ),

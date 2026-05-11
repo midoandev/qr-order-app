@@ -9,13 +9,22 @@ import 'package:qrorder/data/models/order_request_model.dart';
 import '../../core/networks/error/failure.dart';
 import '../models/order_model.dart';
 
-class OrderingRemoteDataSource {
+abstract class OrderingRemoteDataSource {
+  Future<Either<Failure, MenuDataModel>> getMenusByTable(String tableId);
+
+  Future<Either<Failure, OrderModel>> submitOrder(OrderRequestModel payload);
+
+  Future<Either<Failure, OrderModel>> getOrderStatus(int orderId);
+}
+
+class OrderingRemoteDataSourceImpl implements OrderingRemoteDataSource {
   final AssetBundle _bundle;
 
-  OrderingRemoteDataSource(this._bundle);
+  OrderingRemoteDataSourceImpl(this._bundle);
 
   final String baseUrl = "assets/mock/menu.json";
 
+  @override
   Future<Either<Failure, MenuDataModel>> getMenusByTable(String tableId) async {
     try {
       // Simulasi delay fetch data
@@ -27,9 +36,7 @@ class OrderingRemoteDataSource {
       final MenuDataModel menuData = MenuDataModel.fromJson(data);
 
       if (menuData.restaurant.tableId != tableId) {
-        return const Left(
-          ServerFailure("Table ID is not match"),
-        );
+        return const Left(ServerFailure("Table ID is not match"));
       }
       return Right(menuData);
     } catch (e) {
@@ -37,6 +44,7 @@ class OrderingRemoteDataSource {
     }
   }
 
+  @override
   Future<Either<Failure, OrderModel>> submitOrder(
     OrderRequestModel payload,
   ) async {
@@ -52,6 +60,7 @@ class OrderingRemoteDataSource {
     }
   }
 
+  @override
   Future<Either<Failure, OrderModel>> getOrderStatus(int orderId) async {
     try {
       final String response = await _bundle.loadString(baseUrl);
