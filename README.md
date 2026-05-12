@@ -34,11 +34,10 @@ flutter pub get
 ```
 
 
-2. **Generate Code**
-   We use `build_runner` for Dependency Injection. Run this command:
+2. **Generate Localization (i18n)**
+   Run this whenever you change .arb files:
 ```bash
-dart run build_runner build --delete-conflicting-outputs
-
+flutter gen-l10n
 ```
 
 
