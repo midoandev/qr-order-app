@@ -44,5 +44,17 @@
   "spice_level": "辣度",
   "add_ons": "加料",
   "save_changes": "保存更改",
-  "edit_item": "编辑项目"
+  "edit_item": "编辑项目",
+  "title_order": "订单摘要",
+  "checkout_button": "下订单",
+  "status_pending": "等待确认",
+  "total_payment": "总付款",
+  "success_message": "您的订单已成功下达",
+  "view_order_button": "查看我的订单",
+  "ongoing_title": "进行中的订单",
+  "status_processing": "厨师正在为您准备餐点...",
+  "exit_alert_title": "退出订单页面？",
+  "exit_alert_message": "您的订单正在处理中。您确定要返回主菜单吗？",
+  "exit_confirm": "确认退出",
+  "exit_cancel": "留在页面"
 }

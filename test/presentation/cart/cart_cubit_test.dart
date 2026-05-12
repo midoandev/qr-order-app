@@ -2,7 +2,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:qrorder/core/networks/error/failure.dart';
+import 'package:qrorder/core/error/failure.dart';
 import 'package:qrorder/domain/entities/cart_entity.dart';
 import 'package:qrorder/domain/usecases/add_to_cart_use_case.dart';
 import 'package:qrorder/domain/usecases/get_cart_use_case.dart';

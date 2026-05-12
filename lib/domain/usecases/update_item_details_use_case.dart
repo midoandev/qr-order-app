@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import '../../core/networks/error/failure.dart';
+import '../../core/error/failure.dart';
 import '../entities/cart_entity.dart';
 import '../entities/customization_option_entity.dart';
 import '../repositories/cart_repository.dart';

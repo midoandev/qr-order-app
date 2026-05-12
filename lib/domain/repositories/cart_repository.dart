@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:qrorder/domain/entities/customization_option_entity.dart';
-import '../../core/networks/error/failure.dart';
+import '../../core/error/failure.dart';
 import '../entities/cart_entity.dart';
 import '../entities/cart_item_entity.dart';
 

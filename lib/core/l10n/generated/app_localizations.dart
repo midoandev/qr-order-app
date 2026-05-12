@@ -324,6 +324,78 @@ abstract class S {
   /// In en, this message translates to:
   /// **'Edit Item'**
   String get edit_item;
+
+  /// No description provided for @title_order.
+  ///
+  /// In en, this message translates to:
+  /// **'Order Summary'**
+  String get title_order;
+
+  /// No description provided for @checkout_button.
+  ///
+  /// In en, this message translates to:
+  /// **'Place Order'**
+  String get checkout_button;
+
+  /// No description provided for @status_pending.
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting for Confirmation'**
+  String get status_pending;
+
+  /// No description provided for @total_payment.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Payment'**
+  String get total_payment;
+
+  /// No description provided for @success_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Your order has been placed successfully'**
+  String get success_message;
+
+  /// No description provided for @view_order_button.
+  ///
+  /// In en, this message translates to:
+  /// **'View My Order'**
+  String get view_order_button;
+
+  /// No description provided for @ongoing_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Order in Progress'**
+  String get ongoing_title;
+
+  /// No description provided for @status_processing.
+  ///
+  /// In en, this message translates to:
+  /// **'The chef is preparing your meal...'**
+  String get status_processing;
+
+  /// No description provided for @exit_alert_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit Order Page?'**
+  String get exit_alert_title;
+
+  /// No description provided for @exit_alert_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Your order is still being processed. Are you sure you want to go back to the main menu?'**
+  String get exit_alert_message;
+
+  /// No description provided for @exit_confirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes, Exit'**
+  String get exit_confirm;
+
+  /// No description provided for @exit_cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Stay Here'**
+  String get exit_cancel;
 }
 
 class _SDelegate extends LocalizationsDelegate<S> {

@@ -13,12 +13,10 @@ class CartCubit extends Cubit<CartState> {
   final UpdateCartQuantityUseCase _updateCartQuantityUseCase;
   final UpdateItemDetailsUseCase _updateItemDetailsUseCase;
 
-  CartCubit(
-    this._getCartUseCase,
-    this._addToCartUseCase,
-    this._updateCartQuantityUseCase,
-    this._updateItemDetailsUseCase,
-  ) : super(CartInitial());
+  CartCubit(this._getCartUseCase,
+      this._addToCartUseCase,
+      this._updateCartQuantityUseCase,
+      this._updateItemDetailsUseCase,) : super(CartInitial());
 
   Future<void> fetchCart(String tableId) async {
     emit(CartLoading());
@@ -39,16 +37,14 @@ class CartCubit extends Cubit<CartState> {
     final result = await _addToCartUseCase.execute(tableId, item);
 
     result.fold(
-      (failure) => emit(CartError(message: failure.message)),
-      (cart) => emit(CartLoaded(cart: cart)),
+          (failure) => emit(CartError(message: failure.message)),
+          (cart) => emit(CartLoaded(cart: cart)),
     );
   }
 
-  Future<void> updateQuantity(
-    String tableId,
-    String itemId,
-    int newQuantity,
-  ) async {
+  Future<void> updateQuantity(String tableId,
+      String itemId,
+      int newQuantity,) async {
     final result = await _updateCartQuantityUseCase.execute(
       tableId,
       itemId,

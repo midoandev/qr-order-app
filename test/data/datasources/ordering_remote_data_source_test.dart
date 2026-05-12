@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:qrorder/core/networks/error/failure.dart';
+import 'package:qrorder/core/error/failure.dart';
 import 'package:qrorder/data/datasources/ordering_remote_data_source.dart';
 
 class MockAssetBundle extends Mock implements AssetBundle {}

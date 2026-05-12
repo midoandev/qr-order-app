@@ -123,4 +123,41 @@ class SEn extends S {
 
   @override
   String get edit_item => 'Edit Item';
+
+  @override
+  String get title_order => 'Order Summary';
+
+  @override
+  String get checkout_button => 'Place Order';
+
+  @override
+  String get status_pending => 'Waiting for Confirmation';
+
+  @override
+  String get total_payment => 'Total Payment';
+
+  @override
+  String get success_message => 'Your order has been placed successfully';
+
+  @override
+  String get view_order_button => 'View My Order';
+
+  @override
+  String get ongoing_title => 'Order in Progress';
+
+  @override
+  String get status_processing => 'The chef is preparing your meal...';
+
+  @override
+  String get exit_alert_title => 'Exit Order Page?';
+
+  @override
+  String get exit_alert_message =>
+      'Your order is still being processed. Are you sure you want to go back to the main menu?';
+
+  @override
+  String get exit_confirm => 'Yes, Exit';
+
+  @override
+  String get exit_cancel => 'Stay Here';
 }

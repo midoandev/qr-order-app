@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:qrorder/data/models/menu_data_model.dart';
 import 'package:qrorder/data/models/order_request_model.dart';
 
-import '../../core/networks/error/failure.dart';
+import '../../core/error/failure.dart';
 import '../models/order_model.dart';
 
 abstract class OrderingRemoteDataSource {

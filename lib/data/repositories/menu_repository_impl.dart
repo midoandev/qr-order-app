@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 
-import 'package:qrorder/core/networks/error/failure.dart';
+import 'package:qrorder/core/error/failure.dart';
 
 import '../../domain/entities/menu_data_entity.dart';
 import '../../domain/repositories/menu_repository.dart';

@@ -123,4 +123,40 @@ class SZh extends S {
 
   @override
   String get edit_item => '编辑项目';
+
+  @override
+  String get title_order => '订单摘要';
+
+  @override
+  String get checkout_button => '下订单';
+
+  @override
+  String get status_pending => '等待确认';
+
+  @override
+  String get total_payment => '总付款';
+
+  @override
+  String get success_message => '您的订单已成功下达';
+
+  @override
+  String get view_order_button => '查看我的订单';
+
+  @override
+  String get ongoing_title => '进行中的订单';
+
+  @override
+  String get status_processing => '厨师正在为您准备餐点...';
+
+  @override
+  String get exit_alert_title => '退出订单页面？';
+
+  @override
+  String get exit_alert_message => '您的订单正在处理中。您确定要返回主菜单吗？';
+
+  @override
+  String get exit_confirm => '确认退出';
+
+  @override
+  String get exit_cancel => '留在页面';
 }

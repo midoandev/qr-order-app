@@ -1,18 +1,20 @@
-class OrderEntity {
-  final int id;
-  final String tableId;
-  final String status; // pending, confirmed, preparing, ready, served
-  final double totalPrice;
-  final String? customerNote;
-  final String? estimatedTime;
+import 'cart_item_entity.dart';
 
-  OrderEntity({
+class OrderEntity {
+  final String id;
+  final String tableId;
+  final List<CartItemEntity> items;
+  final double totalPrice;
+  final DateTime createdAt;
+  final String status; // e.g., "pending", "processing", "completed"
+
+  const OrderEntity({
     required this.id,
     required this.tableId,
-    required this.status,
+    required this.items,
     required this.totalPrice,
-    this.customerNote,
-    this.estimatedTime,
+    required this.createdAt,
+    required this.status,
   });
 
   @override
@@ -22,12 +24,12 @@ class OrderEntity {
           runtimeType == other.runtimeType &&
           id == other.id &&
           tableId == other.tableId &&
-          status == other.status &&
+          items == other.items &&
           totalPrice == other.totalPrice &&
-          customerNote == other.customerNote &&
-          estimatedTime == other.estimatedTime;
+          createdAt == other.createdAt &&
+          status == other.status;
 
   @override
   int get hashCode =>
-      Object.hash(id, tableId, status, totalPrice, customerNote, estimatedTime);
+      Object.hash(id, tableId, items, totalPrice, createdAt, status);
 }

@@ -41,10 +41,9 @@ class _ScannerPageState extends State<ScannerPage> {
       listener: (context, state) async {
         if (state is ScannerDetected && !_isNavigating) {
           _isNavigating = true;
-          await controller.stop();
           if (context.mounted) {
             context.pushReplacement(MenuPage.route, extra: state.tableId);
-            await controller.pause();
+            await controller.dispose();
           }
         }
       },

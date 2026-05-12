@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:qrorder/core/networks/error/failure.dart';
+import 'package:qrorder/core/error/failure.dart';
 import 'package:qrorder/data/datasources/ordering_remote_data_source.dart';
 import 'package:qrorder/data/models/menu_data_model.dart';
 import 'package:qrorder/data/models/restaurant_model.dart';

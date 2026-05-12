@@ -44,5 +44,17 @@
   "spice_level": "Spice Level",
   "add_ons": "Add-ons",
   "save_changes": "Save Changes",
-  "edit_item": "Edit Item"
+  "edit_item": "Edit Item",
+  "title_order": "Order Summary",
+  "checkout_button": "Place Order",
+  "status_pending": "Waiting for Confirmation",
+  "total_payment": "Total Payment",
+  "success_message": "Your order has been placed successfully",
+  "view_order_button": "View My Order",
+  "ongoing_title": "Order in Progress",
+  "status_processing": "The chef is preparing your meal...",
+  "exit_alert_title": "Exit Order Page?",
+  "exit_alert_message": "Your order is still being processed. Are you sure you want to go back to the main menu?",
+  "exit_confirm": "Yes, Exit",
+  "exit_cancel": "Stay Here"
 }

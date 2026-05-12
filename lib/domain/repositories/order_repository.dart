@@ -1,12 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:qrorder/domain/entities/order_entity.dart';
-import 'package:qrorder/domain/entities/order_request_entity.dart';
-
-import '../../core/networks/error/failure.dart';
+import '../../core/error/failure.dart';
+import '../entities/cart_item_entity.dart';
+import '../entities/order_entity.dart';
 
 abstract class OrderRepository {
-  Future<Either<Failure, OrderEntity>> submitOrder(OrderRequestEntity payload);
-
-  Future<Either<Failure, OrderEntity>> getOrderStatus(int orderId);
-
+  Future<Either<Failure, OrderEntity>> checkout({required String tableId, required List<CartItemEntity> cartItems});
+  Future<Either<Failure, List<OrderEntity>>> getOrderHistory(String tableId);
 }

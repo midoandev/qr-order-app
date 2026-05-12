@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:qrorder/domain/entities/menu_data_entity.dart';
-import '../../core/networks/error/failure.dart';
+import '../../core/error/failure.dart';
 import '../repositories/menu_repository.dart';
 
 class GetMenuUseCase {
