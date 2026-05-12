@@ -1,0 +1,38 @@
+name: Android Build & Test
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build-debug:
+    runs-on: ubuntu-latest
+    environment: development
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Generate Code (build_runner)
+        run: dart run build_runner build --delete-conflicting-outputs
+
+      - name: Run Unit Tests
+        run: flutter test --coverage
+
+      - name: Create .env file
+        run: |
+          echo "APP_NAME=${{ secrets.APP_NAME }}" >> .env
+          echo "BASE_URL=${{ secrets.BASE_URL }}" >> .env
+
+      - name: Build Debug APK
+        # Menggunakan keystore debug bawaan flutter secara otomatis
+        run: flutter build apk --debug

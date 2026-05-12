@@ -1,17 +1,78 @@
-# qrorder
+# README - Mobile QR Order App
 
-A new Flutter project.
+## 1. Project Architecture
 
-## Getting Started
+This project follows strict Clean Architecture. We divide the code into three layers:
 
-This project is a starting point for a Flutter application.
+* **Domain Layer**: It contains Entities, Repository Interfaces, and Use Cases. This layer uses pure Dart. It has zero dependencies on other layers.
+* **Data Layer**: It contains Models, Data Sources, and Repository Implementations. Models convert JSON data to Entities using `.toEntity()`.
+* **Presentation Layer**: It contains Cubit, State, Pages, and Widgets. Cubit only communicates with Use Cases.
 
-A few resources to get you started if this is your first Flutter project:
+## 2. Technical Stack
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+* **State Management**: Flutter Cubit (Bloc).
+* **Navigation**: GoRouter.
+* **Dependency Injection**: GetIt.
+* **Functional Programming**: Dartz (Either for Failure or Success).
+* **UI Standard**: Material 3.
+* **Internationalization**: i18n (ARB files).
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 3. How to Build the Project
+
+### Prerequisites
+
+* Install Flutter SDK.
+* Install Dart SDK.
+
+### Build Steps
+
+1. **Get Dependencies**
+   Open your terminal. Run this command:
+```bash
+flutter pub get
+
+```
+
+
+2. **Generate Code**
+   We use `build_runner` for Dependency Injection. Run this command:
+```bash
+dart run build_runner build --delete-conflicting-outputs
+
+```
+
+
+3. **Environment Setup**
+   Create a `.env` file in the root folder. Copy values from `.env.example`.
+   Example content for `.env`:
+```bash
+APP_NAME=OrderApp
+API_URL=https://offline.local
+```
+
+4. **Run Unit Test**
+   We must test the logic before build. Run this command:
+```bash
+flutter test
+
+```
+
+
+5. **Build Debug APK**
+   Run this command to create a debug version:
+```bash
+flutter build apk --debug
+
+```
+
+
+
+## 4. Coding Rules
+
+* **Entities**: Use pure Dart only. Must end with `Entity`.
+* **Models**: Must end with `Model`. Must have `toEntity()` and `fromJson()`.
+* **Paths**: Every file must show its path at the top.
+* **Colors**: Use `.withValues(alpha: 0.x)` for transparency.
+* **Strings**: Access via `context.s.[feature].[key]`.
+
+---
