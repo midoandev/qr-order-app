@@ -25,13 +25,13 @@ jobs:
       - name: Generate Localization
         run: flutter gen-l10n
 
-      - name: Run Unit Tests
-        run: flutter test --coverage
-
       - name: Create .env file
         run: |
           echo "APP_NAME=${{ secrets.APP_NAME }}" >> .env
           echo "BASE_URL=${{ secrets.BASE_URL }}" >> .env
+
+      - name: Run Unit Tests
+        run: flutter test --coverage
 
       - name: Build Debug APK
         # Menggunakan keystore debug bawaan flutter secara otomatis
