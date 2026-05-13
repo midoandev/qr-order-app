@@ -8,7 +8,7 @@
   "dark_mode": "深色模式",
   "english": "English",
   "chinese": "中文",
-  "welcome_message": "欢迎来到 Sushi Zen",
+  "welcome_message": "你的美食梦想，从这里开始。",
   "scan_button": "扫描桌位二维码",
   "error_controller": "扫描控制器未 saing.",
   "error_permission": "相机权限 dipindah.",

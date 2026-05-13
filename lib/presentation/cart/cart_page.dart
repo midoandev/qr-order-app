@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:qrorder/presentation/cart/widgets/build_checkout_bottom_bar.dart';
 import 'package:qrorder/presentation/cart/widgets/cart_item_action_wrapper.dart';
 import 'package:qrorder/presentation/order/order_page.dart';
 
 import '../../core/extensions/localizations_extension.dart';
 import '../../core/extensions/theme_extention.dart';
+import '../widgets/build_checkout_bottom_bar.dart';
 import 'cubits/cart_cubit.dart';
 import 'cubits/cart_state.dart';
 import 'widgets/build_empty_state.dart';
@@ -69,6 +69,7 @@ class _CartPageState extends State<CartPage> {
         ),
         BuildCheckoutBottomBar(
           cart: state.cart,
+          isCartPage: true,
           onPressCheckout: () {
             context.push(OrderPage.route, extra: state.cart);
           },

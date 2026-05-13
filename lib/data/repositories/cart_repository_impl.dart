@@ -24,6 +24,16 @@ class CartRepositoryImpl implements CartRepository {
   }
 
   @override
+  Either<Failure, Unit> clearCart(String tableId) {
+    try {
+      _localDataSource.clearCart(tableId);
+      return const Right(unit);
+    } catch (e) {
+      return Left(CacheFailure(e.toString()));
+    }
+  }
+
+  @override
   Future<Either<Failure, CartEntity>> addToCart(String tableId, CartItemEntity item) async {
     try {
       final cartModel = await _localDataSource.addToCart(
@@ -65,4 +75,5 @@ class CartRepositoryImpl implements CartRepository {
       return Left(CacheFailure(e.toString()));
     }
   }
+
 }

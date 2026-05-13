@@ -36,7 +36,7 @@ class CartItemModel {
       'menu_item': menuItem.toJson(),
       'quantity': quantity,
       'notes': notes,
-      'options': selectedCustomizations.map((e) => e).toList(),
+      'options': selectedCustomizations.map((e) => e.toJson()).toList(),
     };
   }
 

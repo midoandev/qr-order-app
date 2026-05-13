@@ -70,7 +70,7 @@ class MenuModel {
       "price": price,
       "category_id": categoryId,
       "image_url": imageUrl,
-      "customization_groups": customizationGroups,
+      "customization_groups": customizationGroups.map((e) => e.toJson()).toList(),
     };
   }
 }

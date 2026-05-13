@@ -33,7 +33,7 @@ class SZh extends S {
   String get chinese => '中文';
 
   @override
-  String get welcome_message => '欢迎来到 Sushi Zen';
+  String get welcome_message => '你的美食梦想，从这里开始。';
 
   @override
   String get scan_button => '扫描桌位二维码';

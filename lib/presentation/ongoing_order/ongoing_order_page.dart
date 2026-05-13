@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:qrorder/presentation/ongoing_order/widgets/cooking_loader_animation.dart';
 
 import '../../core/extensions/localizations_extension.dart';
 import '../../core/extensions/theme_extention.dart';
 import '../../domain/entities/order_entity.dart';
+import '../home/cubits/home_cubit.dart';
+import '../home/home_page.dart';
 
 class OngoingOrderPage extends StatefulWidget {
   static const String route = '/ongoing-order';
@@ -35,29 +38,29 @@ class _OngoingOrderPageState extends State<OngoingOrderPage>
     super.dispose();
   }
 
-  Future<bool> _showExitConfirmation(BuildContext context) async {
-    final result = await showDialog<bool>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(context.s.exit_alert_title),
-        content: Text(context.s.exit_alert_message),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context, false),
-            child: Text(context.s.exit_cancel),
-          ),
-          TextButton(
-            onPressed: () => Navigator.pop(context, true),
-            child: Text(
-              context.s.exit_confirm,
-              style: TextStyle(color: context.colorScheme.error),
-            ),
-          ),
-        ],
-      ),
-    );
-    return result ?? false;
-  }
+  // Future<bool> _showExitConfirmation(BuildContext context) async {
+  //   final result = await showDialog<bool>(
+  //     context: context,
+  //     builder: (context) => AlertDialog(
+  //       title: Text(context.s.exit_alert_title),
+  //       content: Text(context.s.exit_alert_message),
+  //       actions: [
+  //         TextButton(
+  //           onPressed: () => Navigator.pop(context, false),
+  //           child: Text(context.s.exit_cancel),
+  //         ),
+  //         TextButton(
+  //           onPressed: () => Navigator.pop(context, true),
+  //           child: Text(
+  //             context.s.exit_confirm,
+  //             style: TextStyle(color: context.colorScheme.error),
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  //   return result ?? false;
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -65,9 +68,9 @@ class _OngoingOrderPageState extends State<OngoingOrderPage>
       canPop: false,
       onPopInvokedWithResult: (didPop, result) async {
         if (didPop) return;
-        final shouldPop = await _showExitConfirmation(context);
-        if (shouldPop && context.mounted) {
-          context.goNamed('/'); // Kembali ke halaman utama dan reset stack
+        if (context.mounted) {
+          await context.read<HomeCubit>().loadOngoingOrders();
+          context.mounted ? context.go(HomePage.route) : null;
         }
       },
       child: Scaffold(
@@ -76,9 +79,9 @@ class _OngoingOrderPageState extends State<OngoingOrderPage>
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () async {
-              final shouldPop = await _showExitConfirmation(context);
-              if (shouldPop && context.mounted) {
-                context.go('/');
+              // final shouldPop = await _showExitConfirmation(context);
+              if (context.mounted) {
+                context.go(HomePage.route);
               }
             },
           ),
@@ -139,7 +142,7 @@ class _OngoingOrderPageState extends State<OngoingOrderPage>
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemCount: widget.order.items.length,
-      separatorBuilder: (_, __) => const SizedBox(height: 16),
+      separatorBuilder: (_, _) => const SizedBox(height: 16),
       itemBuilder: (context, index) {
         final item = widget.order.items[index];
         return Column(

@@ -8,7 +8,7 @@
   "dark_mode": "Dark Mode",
   "english": "English",
   "chinese": "Chinese",
-  "welcome_message": "Welcome to Sushi Zen",
+  "welcome_message": "Where your culinary dreams begin..",
   "scan_button": "Scan Table QR",
   "error_controller": "Scanner controller not ready.",
   "error_permission": "Camera permission denied.",

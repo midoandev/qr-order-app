@@ -148,7 +148,7 @@ abstract class S {
   /// No description provided for @welcome_message.
   ///
   /// In en, this message translates to:
-  /// **'Welcome to Sushi Zen'**
+  /// **'Where your culinary dreams begin..'**
   String get welcome_message;
 
   /// No description provided for @scan_button.

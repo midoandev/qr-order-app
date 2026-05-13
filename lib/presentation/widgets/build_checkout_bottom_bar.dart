@@ -7,7 +7,8 @@ import '../../../domain/entities/cart_entity.dart';
 class BuildCheckoutBottomBar extends StatelessWidget {
   final CartEntity cart;
   final Function() onPressCheckout;
-  const BuildCheckoutBottomBar({super.key, required this.cart, required this.onPressCheckout});
+  final bool isCartPage;
+  const BuildCheckoutBottomBar({super.key, required this.cart, required this.onPressCheckout, this.isCartPage = false});
 
   @override
   Widget build(BuildContext context) {
@@ -28,37 +29,40 @@ class BuildCheckoutBottomBar extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  context.s.subtotal,
-                  style: TextStyle(color: context.colorScheme.onSurfaceVariant),
-                ),
-                Text(
-                  '\$${cart.subtotal.toStringAsFixed(2)}',
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            const SizedBox(height: 8),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  context.s.tax,
-                  style: TextStyle(color: context.colorScheme.onSurfaceVariant),
-                ),
-                Text(
-                  '\$${cart.tax.toStringAsFixed(2)}',
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 12),
-              child: Divider(),
-            ),
+            if (!isCartPage) ...[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    context.s.subtotal,
+                    style: TextStyle(color: context.colorScheme.onSurfaceVariant),
+                  ),
+                  Text(
+                    '\$${cart.subtotal.toStringAsFixed(2)}',
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    context.s.tax,
+                    style: TextStyle(color: context.colorScheme.onSurfaceVariant),
+                  ),
+                  Text(
+                    '\$${cart.tax.toStringAsFixed(2)}',
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 12),
+                child: Divider(),
+              ),
+            ],
+
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -70,7 +74,7 @@ class BuildCheckoutBottomBar extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '\$${cart.grandTotal.toStringAsFixed(2)}',
+                  '\$${(isCartPage ? cart.subtotal : cart.grandTotal).toStringAsFixed(2)}',
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,

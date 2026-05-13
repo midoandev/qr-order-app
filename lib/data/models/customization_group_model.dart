@@ -49,4 +49,15 @@ class CustomizationGroupModel {
           .toList(),
     );
   }
+
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'is_required': isRequired,
+      'max_selections': maxSelections,
+      'options': options.map((e) => e.toJson()).toList(),
+    };
+  }
 }

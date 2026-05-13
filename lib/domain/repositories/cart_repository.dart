@@ -12,6 +12,8 @@ abstract class CartRepository {
     CartItemEntity item,
   );
 
+  Either<Failure, Unit> clearCart(String tableId);
+
   Future<Either<Failure, CartEntity>> updateQuantity(
     String tableId,
     String itemId,

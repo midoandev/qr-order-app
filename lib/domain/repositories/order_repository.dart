@@ -4,6 +4,10 @@ import '../entities/cart_item_entity.dart';
 import '../entities/order_entity.dart';
 
 abstract class OrderRepository {
-  Future<Either<Failure, OrderEntity>> checkout({required String tableId, required List<CartItemEntity> cartItems});
-  Future<Either<Failure, List<OrderEntity>>> getOrderHistory(String tableId);
+  Future<Either<Failure, OrderEntity>> checkout({
+    required String tableId,
+    required List<CartItemEntity> cartItems,
+  });
+
+  Future<Either<Failure, List<OrderEntity>>> getActiveOrders();
 }

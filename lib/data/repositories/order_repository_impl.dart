@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:qrorder/domain/entities/cart_item_entity.dart';
 import '../../core/error/failure.dart';
 import '../../domain/entities/order_entity.dart';
@@ -8,9 +9,9 @@ import '../models/cart_item_model.dart';
 import '../models/order_model.dart';
 
 class OrderRepositoryImpl implements OrderRepository {
-  final OrderLocalData _localDataSource;
+  final OrderLocalData localData;
 
-  OrderRepositoryImpl(this._localDataSource);
+  OrderRepositoryImpl(this.localData);
 
   @override
   Future<Either<Failure, OrderEntity>> checkout({
@@ -24,7 +25,7 @@ class OrderRepositoryImpl implements OrderRepository {
       );
 
       final orderModel = OrderModel(
-        id: DateTime.now().millisecondsSinceEpoch.toString(),
+        id: "ORD-${DateTime.now().millisecondsSinceEpoch}",
         tableId: tableId,
         items: cartItems.map((item) => CartItemModel.fromEntity(item)).toList(),
         totalPrice: totalPrice,
@@ -32,21 +33,20 @@ class OrderRepositoryImpl implements OrderRepository {
         status: "pending",
       );
 
-      final result = await _localDataSource.saveOrder(orderModel);
+      final result = await localData.saveOrder(orderModel);
       return Right(result.toEntity());
     } catch (e) {
+      debugPrint('fdslkm $e');
       return Left(CacheFailure(e.toString()));
     }
   }
 
   @override
-  Future<Either<Failure, List<OrderEntity>>> getOrderHistory(
-    String tableId,
-  ) async {
+  Future<Either<Failure, List<OrderEntity>>> getActiveOrders() async {
     try {
-      final models = await _localDataSource.getOrders(tableId);
-      final entities = models.map((m) => m.toEntity()).toList();
-      return Right(entities);
+      final models = await localData.getAllActiveOrders();
+      // Kembalikan sebagai Entity ke Domain/Presentation
+      return Right(models.map((e) => e.toEntity()).toList());
     } catch (e) {
       return Left(CacheFailure(e.toString()));
     }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:qrorder/core/navigation/app_router.dart';
+import 'package:qrorder/core/router/app_router.dart';
 import 'package:qrorder/core/theme/app_theme.dart';
 import 'package:qrorder/presentation/settings/settings_cubit.dart';
 import 'core/di/injection.dart';

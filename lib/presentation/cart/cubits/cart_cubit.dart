@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qrorder/domain/entities/customization_option_entity.dart';
 import '../../../domain/entities/cart_item_entity.dart';
 import '../../../domain/usecases/add_to_cart_use_case.dart';
+import '../../../domain/usecases/clear_cart_use_case.dart';
 import '../../../domain/usecases/get_cart_use_case.dart';
 import '../../../domain/usecases/update_cart_quantity_use_case.dart';
 import '../../../domain/usecases/update_item_details_use_case.dart';
@@ -12,11 +13,15 @@ class CartCubit extends Cubit<CartState> {
   final AddToCartUseCase _addToCartUseCase;
   final UpdateCartQuantityUseCase _updateCartQuantityUseCase;
   final UpdateItemDetailsUseCase _updateItemDetailsUseCase;
+  final ClearCartUseCase _clearCartUseCase;
 
-  CartCubit(this._getCartUseCase,
-      this._addToCartUseCase,
-      this._updateCartQuantityUseCase,
-      this._updateItemDetailsUseCase,) : super(CartInitial());
+  CartCubit(
+    this._getCartUseCase,
+    this._addToCartUseCase,
+    this._updateCartQuantityUseCase,
+    this._updateItemDetailsUseCase,
+    this._clearCartUseCase,
+  ) : super(CartInitial());
 
   Future<void> fetchCart(String tableId) async {
     emit(CartLoading());
@@ -37,14 +42,16 @@ class CartCubit extends Cubit<CartState> {
     final result = await _addToCartUseCase.execute(tableId, item);
 
     result.fold(
-          (failure) => emit(CartError(message: failure.message)),
-          (cart) => emit(CartLoaded(cart: cart)),
+      (failure) => emit(CartError(message: failure.message)),
+      (cart) => emit(CartLoaded(cart: cart)),
     );
   }
 
-  Future<void> updateQuantity(String tableId,
-      String itemId,
-      int newQuantity,) async {
+  Future<void> updateQuantity(
+    String tableId,
+    String itemId,
+    int newQuantity,
+  ) async {
     final result = await _updateCartQuantityUseCase.execute(
       tableId,
       itemId,
@@ -80,5 +87,10 @@ class CartCubit extends Cubit<CartState> {
         emit(CartLoaded(cart: cart));
       }
     });
+  }
+
+  void clearCart(String tableId) {
+    _clearCartUseCase.execute(tableId);
+    emit(CartEmpty());
   }
 }

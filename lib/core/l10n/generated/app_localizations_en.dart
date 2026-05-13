@@ -33,7 +33,7 @@ class SEn extends S {
   String get chinese => 'Chinese';
 
   @override
-  String get welcome_message => 'Welcome to Sushi Zen';
+  String get welcome_message => 'Where your culinary dreams begin..';
 
   @override
   String get scan_button => 'Scan Table QR';

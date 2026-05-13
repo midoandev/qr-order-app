@@ -20,6 +20,8 @@ abstract class CartLocalData {
     required List<CustomizationOptionModel> selections,
     String? notes,
   });
+
+  void clearCart(String tableId);
 }
 
 class CartLocalDataImpl implements CartLocalData {
@@ -172,5 +174,10 @@ class CartLocalDataImpl implements CartLocalData {
     final updatedCart = CartModel(tableId: tableId, items: items);
     _database[tableId] = updatedCart;
     return updatedCart;
+  }
+
+  @override
+  void clearCart(String tableId) {
+    return _database.clear();
   }
 }

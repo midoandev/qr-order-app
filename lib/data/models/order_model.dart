@@ -47,7 +47,7 @@ class OrderModel {
     return {
       'id': id,
       'table_id': tableId,
-      'items': items.map((e) => e.toJson()),
+      'items': items.map((e) => e.toJson()).toList(),
       'total_price': totalPrice,
       'created_at': createdAt.toIso8601String(),
       'status': status,

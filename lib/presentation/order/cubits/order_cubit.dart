@@ -20,8 +20,10 @@ class OrderCubit extends Cubit<OrderState> {
     );
 
     result.fold(
-      (failure) => emit(OrderError(failure.message)),
-      (order) => emit(OrderLoaded(order)),
+          (failure) => emit(OrderError(failure.message)),
+          (order) {
+        emit(OrderLoaded(order));
+      },
     );
   }
 }

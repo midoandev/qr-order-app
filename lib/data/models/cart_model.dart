@@ -19,7 +19,7 @@ class CartModel {
   Map<String, dynamic> toJson() {
     return {
       'table_id': tableId,
-      'items': items.map((e) => e.toJson()).toList(),
+      'items': items.map((e) => e.toJson()),
     };
   }
 

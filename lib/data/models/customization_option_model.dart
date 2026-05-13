@@ -36,4 +36,12 @@ class CustomizationOptionModel {
       priceModifier: entity.priceModifier,
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'price_modifier': priceModifier,
+    };
+  }
 }

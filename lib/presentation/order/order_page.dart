@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:qrorder/presentation/cart/cubits/cart_cubit.dart';
 import 'package:qrorder/presentation/order/widgets/order_success.dart';
 import '../../core/extensions/localizations_extension.dart';
 import '../../core/extensions/theme_extention.dart';
 import '../../domain/entities/cart_entity.dart';
+import '../widgets/build_checkout_bottom_bar.dart';
 import 'cubits/order_cubit.dart';
 import 'cubits/order_state.dart';
 
@@ -26,6 +28,7 @@ class OrderPage extends StatelessWidget {
             ).showSnackBar(SnackBar(content: Text(orderState.message)));
           }
           if (orderState is OrderLoaded) {
+            context.read<CartCubit>().clearCart(cart.tableId);
             context.pushReplacement(
               OrderSuccess.route,
               extra: orderState.order,
@@ -87,78 +90,24 @@ class OrderPage extends StatelessWidget {
                   },
                 ),
               ),
-              _buildBottomAction(context, cart.grandTotal, () {
-                context.read<OrderCubit>().submitOrder(
-                  tableId: cart.tableId,
-                  cartItems: cart.items,
-                );
-              }, orderState is OrderLoading),
+              // _buildBottomAction(context, cart.grandTotal, () {
+              //   context.read<OrderCubit>().submitOrder(
+              //     tableId: cart.tableId,
+              //     cartItems: cart.items,
+              //   );
+              // }, orderState is OrderLoading),
+              BuildCheckoutBottomBar(
+                cart: cart,
+                onPressCheckout: () {
+                  context.read<OrderCubit>().submitOrder(
+                    tableId: cart.tableId,
+                    cartItems: cart.items,
+                  );
+                },
+              ),
             ],
           );
         },
-      ),
-    );
-  }
-
-  Widget _buildBottomAction(
-    BuildContext context,
-    double total,
-    VoidCallback onCheckout,
-    bool isLoading,
-  ) {
-    return Container(
-      padding: const EdgeInsets.all(24),
-      decoration: BoxDecoration(
-        color: context.colorScheme.surface,
-        border: Border(
-          top: BorderSide(
-            color: context.colorScheme.outlineVariant.withValues(alpha: 0.2),
-          ),
-        ),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                context.s.total_payment,
-                style: context.textTheme.titleMedium,
-              ),
-              Text(
-                "\$${total.toStringAsFixed(2)}",
-                style: context.textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: context.colorScheme.primary,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 16),
-          SizedBox(
-            width: double.infinity,
-            child: FilledButton(
-              onPressed: isLoading ? null : onCheckout,
-              style: FilledButton.styleFrom(
-                padding: const EdgeInsets.symmetric(vertical: 16),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
-              child: isLoading
-                  ? const SizedBox(
-                      height: 20,
-                      width: 20,
-                      child: CircularProgressIndicator(
-                        strokeWidth: 2,
-                        color: Colors.white,
-                      ),
-                    )
-                  : Text(context.s.checkout_button),
-            ),
-          ),
-        ],
       ),
     );
   }
