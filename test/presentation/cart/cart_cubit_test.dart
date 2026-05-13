@@ -5,6 +5,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:qrorder/core/error/failure.dart';
 import 'package:qrorder/domain/entities/cart_entity.dart';
 import 'package:qrorder/domain/usecases/add_to_cart_use_case.dart';
+import 'package:qrorder/domain/usecases/clear_cart_use_case.dart';
 import 'package:qrorder/domain/usecases/get_cart_use_case.dart';
 import 'package:qrorder/domain/usecases/update_cart_quantity_use_case.dart';
 import 'package:qrorder/domain/usecases/update_item_details_use_case.dart';
@@ -21,23 +22,28 @@ class MockUpdateCartQuantityUseCase extends Mock
 class MockUpdateItemDetailsUseCase extends Mock
     implements UpdateItemDetailsUseCase {}
 
+class MockClearCartUseCase extends Mock implements ClearCartUseCase {}
+
 void main() {
   late CartCubit cubit;
   late MockGetCartUseCase mockGetCart;
   late MockAddToCartUseCase mockAddToCart;
   late MockUpdateCartQuantityUseCase mockUpdateQty;
   late MockUpdateItemDetailsUseCase mockUpdateItemDetails;
+  late MockClearCartUseCase mockClearCartUseCase;
 
   setUp(() {
     mockGetCart = MockGetCartUseCase();
     mockAddToCart = MockAddToCartUseCase();
     mockUpdateQty = MockUpdateCartQuantityUseCase();
     mockUpdateItemDetails = MockUpdateItemDetailsUseCase();
+    mockClearCartUseCase = MockClearCartUseCase();
     cubit = CartCubit(
       mockGetCart,
       mockAddToCart,
       mockUpdateQty,
       mockUpdateItemDetails,
+      mockClearCartUseCase,
     );
   });
 
