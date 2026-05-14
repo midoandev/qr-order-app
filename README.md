@@ -10,13 +10,9 @@ A high-performance, QR-based restaurant ordering application built with **Flutte
 
 ## 📱 App Showcases
 
-<p align="center">
-  <img src="assets/icon/app_icon.png" width="512" alt="Main Showcase">
-</p>
 
-<p align="center">
+
   <img src="assets/screenshots/screen_recorder.gif" width="300" alt="Demo Aplikasi">
-</p>
 
 ---
 
@@ -73,8 +69,10 @@ Upon app relaunch or returning to Home, `HomeCubit` re-hydrates the state from D
 Use these QR codes to test the application logic (scan via the in-app scanner):
 
 <p align="center">
-  <img src="assets/qrcodes/table_t001.png" width="180" alt="Table T001">
-  <img src="assets/qrcodes/table_t002.png" width="180" alt="Table T002">
+  <img src="assets/qrcodes/table_t001.png" height="180" alt="Table T001">
+  <img src="assets/icon/app_icon.png" height="180" alt="Main Showcase">
+
+  <img src="assets/qrcodes/table_t002.png" height="180" alt="Table T002">
 </p>
 <p align="center">
   <i>Table ID: T001 | Table ID: T002</i>
@@ -86,7 +84,7 @@ Use these QR codes to test the application logic (scan via the in-app scanner):
 
 1.  **Clone & Install**:
     ```bash
-    git clone [https://github.com/user/qr-order.git](https://github.com/user/qr-order.git)
+    git clone https://github.com/midoandev/qr-order-app.git
     flutter pub get
     ```
 2.  **Environment Setup**:
