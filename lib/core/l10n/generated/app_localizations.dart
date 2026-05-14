@@ -106,7 +106,7 @@ abstract class S {
   /// No description provided for @app_title.
   ///
   /// In en, this message translates to:
-  /// **'IPOT QR Order'**
+  /// **'QR Order'**
   String get app_title;
 
   /// No description provided for @change_language.
@@ -145,10 +145,16 @@ abstract class S {
   /// **'Chinese'**
   String get chinese;
 
+  /// No description provided for @ready_order.
+  ///
+  /// In en, this message translates to:
+  /// **'Ready to Order?'**
+  String get ready_order;
+
   /// No description provided for @welcome_message.
   ///
   /// In en, this message translates to:
-  /// **'Where your culinary dreams begin..'**
+  /// **'Where your culinary dreams begin'**
   String get welcome_message;
 
   /// No description provided for @scan_button.
@@ -156,6 +162,12 @@ abstract class S {
   /// In en, this message translates to:
   /// **'Scan Table QR'**
   String get scan_button;
+
+  /// No description provided for @scan_info.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan the QR code on your table'**
+  String get scan_info;
 
   /// No description provided for @error_controller.
   ///
@@ -330,6 +342,12 @@ abstract class S {
   /// In en, this message translates to:
   /// **'Order Summary'**
   String get title_order;
+
+  /// No description provided for @order.
+  ///
+  /// In en, this message translates to:
+  /// **'Order'**
+  String get order;
 
   /// No description provided for @checkout_button.
   ///

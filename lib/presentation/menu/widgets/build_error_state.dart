@@ -26,7 +26,7 @@ class BuildErrorState extends StatelessWidget {
             Text(message, textAlign: TextAlign.center),
             const SizedBox(height: 24),
             FilledButton.tonal(
-              onPressed: () => context.push(ScannerPage.route),
+              onPressed: () => context.pushReplacement(ScannerPage.route),
               child: Text(context.s.scan_button),
             ),
           ],

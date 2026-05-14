@@ -53,7 +53,7 @@ class _MenuPageState extends State<MenuPage> {
                 ],
               );
             }
-            return const Text("Loading...");
+            return const Text("");
           },
         ),
         backgroundColor: context.colorScheme.surface,

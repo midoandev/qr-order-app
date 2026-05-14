@@ -67,7 +67,9 @@ class _HomePageState extends State<HomePage> {
                               Icons.restaurant,
                               color: context.colorScheme.primary,
                             ),
-                            title: Text("Order #${order.id.split('-').last}"),
+                            title: Text(
+                              "${context.s.order} #${order.id.split('-').last}",
+                            ),
                             subtitle: Text(
                               "${context.s.table_label} ${order.tableId} • ${order.status}",
                             ),

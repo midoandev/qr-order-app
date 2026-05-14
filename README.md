@@ -1,76 +1,100 @@
+# 🍽️ QR Order System
+
+[![Flutter Version](https://img.shields.io/badge/Flutter-3.x-blue.svg)](https://flutter.dev)
+[![Architecture](https://img.shields.io/badge/Architecture-Clean--Strict-green.svg)](#-architecture-overview)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+A high-performance, QR-based restaurant ordering application built with **Flutter Clean Architecture**.
+
+---
+
+## 📱 App Showcases
+
+<p align="center">
+  <img src="assets/icon/app_icon.png" width="512" alt="Main Showcase">
+</p>
+
+<p align="center">
+  <img src="assets/screenshots/screen_recorder.gif" width="300" alt="Demo Aplikasi">
+</p>
+
+---
+
 ## 🏗 Architecture Overview
 
-This project uses **Strict Clean Architecture** to ensure the code is scalable and easy to test.
+This project implements **Strict Clean Architecture** to ensure high maintainability and 100% testability of business logic.
 
-### Project Layers:
+### 1. Domain Layer (Pure Dart)
+*   **Entities**: Immutable data objects (e.g., `OrderEntity`).
+*   **UseCases**: Orchestrates business rules (e.g., `GetActiveOrdersUseCase`).
+*   **Repositories**: Abstract contracts for data operations.
+*   *Rule: No Flutter dependencies, No JSON logic.*
 
-1. **Domain Layer (Pure Dart)**: Contains business logic. No Flutter dependencies.
-* `Entities`: Plain data objects.
-* `UseCases`: Single responsibility logic (e.g., `GetActiveOrdersUseCase`).
-* `Repositories`: Abstract interfaces.
+### 2. Data Layer
+*   **Models**: JSON serialization & mapping (e.g., `UserModel.fromJson`).
+*   **DataSources**: `OrderLocalData` (SharedPrefs) & `OrderRemoteData` (API).
+*   **RepositoryImpl**: Logic for data retrieval and Entity mapping.
 
-
-2. **Data Layer**: Infrastructure implementation.
-* `Models`: Handle JSON serialization and mapping.
-* `DataSources`: Local storage (`SharedPreferences`) or Remote API.
-* `RepositoryImpl`: Connects DataSources and converts Models to Entities.
-
-
-3. **Presentation Layer**: UI and State Management.
-* `Cubits`: Manage immutable states (Loading, Loaded, Error).
-* `Pages/Widgets`: Material 3 UI with i18n support.
-
-
+### 3. Presentation Layer
+*   **State Management**: `Cubit` (Bloc) with immutable states.
+*   **UI**: Material 3 components, `ColorScheme` adaptation, and `i18n`.
+*   **Adaptive UI**: UI reacts to data states (e.g., Scan Button morphs into FAB when orders exist).
 
 ---
 
 ## 🔄 Core Application Flow
 
-### 1. QR Scan & Table Entry
+### 1. QR Entry & Validation
+User scans a table QR. `ScannerCubit` validates the payload and injects `tableId` into the routing state.
 
-* The user scans a table QR code.
-* `ScannerCubit` validates the data and navigates to the `MenuPage` using the `tableId`.
+### 2. Checkout & Persistent Storage
+On successful checkout:
+1. `OrderCubit` executes `SaveOrderUseCase`.
+2. Data is serialized to JSON and stored in **Local Disk** via `SharedPreferences`.
+3. Order ID is added to the active tracking ledger.
 
-### 2. Cart & Order Management
-
-* The `CartCubit` manages items, add-ons, and notes in the local state.
-* Logic is validated at the Domain level before being passed to the order stage.
-
-### 3. Checkout & Data Persistence
-
-* When checkout is successful, `OrderCubit` calls the `saveOrder` method in the Data Layer.
-* The order is converted to a JSON string and saved in `SharedPreferences`.
-* The Order ID is added to an active tracking list in local storage.
-
-### 4. Active Order Recovery (Home Page)
-
-* When the `HomePage` opens, `HomeCubit` triggers `GetActiveOrdersUseCase`.
-* The app reads stored JSON from `SharedPreferences` and restores the `OrderEntity` list.
-* **Adaptive UI**: If active orders exist, the "Scan" button moves to a **FloatingActionButton (FAB)** to make room for the order list.
+### 3. State Recovery
+Upon app relaunch or returning to Home, `HomeCubit` re-hydrates the state from Disk, ensuring **Zero Data Loss**.
 
 ---
 
 ## 🛠 Tech Stack
 
-* **State Management**: `flutter_bloc` (Cubit).
-* **Navigation**: `go_router` (Custom animations).
-* **Dependency Injection**: `GetIt`.
-* **Local Storage**: `shared_preferences` (Persistent JSON).
-* **Testing**: `mocktail` & `bloc_test`.
+*   **State Management**: `flutter_bloc` (Cubit).
+*   **Routing**: `go_router` (Type-safe & nested navigation).
+*   **DI**: `GetIt` (Service Locator).
+*   **Local Storage**: `shared_preferences` (Persistent Key-Value).
+*   **Testing**: `mocktail` & `bloc_test`.
 
 ---
 
-## 🚀 How to Run
+## 🧪 Test with QR Codes
 
-1. Ensure Flutter SDK is installed.
-2. Run `flutter pub get`.
-3. Create `.env` file for API configurations.
-4. Run `flutter run`.
+Use these QR codes to test the application logic (scan via the in-app scanner):
+
+<p align="center">
+  <img src="assets/qrcodes/table_t001.png" width="180" alt="Table T001">
+  <img src="assets/qrcodes/table_t002.png" width="180" alt="Table T002">
+</p>
+<p align="center">
+  <i>Table ID: T001 | Table ID: T002</i>
+</p>
 
 ---
 
-### Final Engineering Audit
+## 🚀 Getting Started
 
-* **Persistence**: Data is saved to Disk (Disk Storage), not just RAM. It will not disappear on refresh.
-* **Clean Code**: Models handle all JSON logic. Cubits only see Entities.
-* **UX**: The UI adapts automatically based on the presence of active orders.
+1.  **Clone & Install**:
+    ```bash
+    git clone [https://github.com/user/qr-order.git](https://github.com/user/qr-order.git)
+    flutter pub get
+    ```
+2.  **Environment Setup**:
+    Create `.env` in the root folder:
+    ```env
+    BASE_URL=[https://api.your-resto.com](https://api.your-resto.com)
+    APP_NAME=QR Order
+    ```
+3.  **Run Application**:
+    ```bash
+    flutter run

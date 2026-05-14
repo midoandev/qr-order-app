@@ -38,30 +38,6 @@ class _OngoingOrderPageState extends State<OngoingOrderPage>
     super.dispose();
   }
 
-  // Future<bool> _showExitConfirmation(BuildContext context) async {
-  //   final result = await showDialog<bool>(
-  //     context: context,
-  //     builder: (context) => AlertDialog(
-  //       title: Text(context.s.exit_alert_title),
-  //       content: Text(context.s.exit_alert_message),
-  //       actions: [
-  //         TextButton(
-  //           onPressed: () => Navigator.pop(context, false),
-  //           child: Text(context.s.exit_cancel),
-  //         ),
-  //         TextButton(
-  //           onPressed: () => Navigator.pop(context, true),
-  //           child: Text(
-  //             context.s.exit_confirm,
-  //             style: TextStyle(color: context.colorScheme.error),
-  //           ),
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  //   return result ?? false;
-  // }
-
   @override
   Widget build(BuildContext context) {
     return PopScope(
@@ -79,7 +55,6 @@ class _OngoingOrderPageState extends State<OngoingOrderPage>
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () async {
-              // final shouldPop = await _showExitConfirmation(context);
               if (context.mounted) {
                 context.go(HomePage.route);
               }
@@ -129,7 +104,7 @@ class _OngoingOrderPageState extends State<OngoingOrderPage>
             ),
           ),
           Text(
-            "Order ID: ${widget.order.id}",
+            "${context.s.order}: ${widget.order.id}",
             style: context.textTheme.bodySmall,
           ),
         ],

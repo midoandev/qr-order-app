@@ -12,7 +12,7 @@ class SEn extends S {
   String get back => 'Back';
 
   @override
-  String get app_title => 'IPOT QR Order';
+  String get app_title => 'QR Order';
 
   @override
   String get change_language => 'Change Language';
@@ -33,10 +33,16 @@ class SEn extends S {
   String get chinese => 'Chinese';
 
   @override
-  String get welcome_message => 'Where your culinary dreams begin..';
+  String get ready_order => 'Ready to Order?';
+
+  @override
+  String get welcome_message => 'Where your culinary dreams begin';
 
   @override
   String get scan_button => 'Scan Table QR';
+
+  @override
+  String get scan_info => 'Scan the QR code on your table';
 
   @override
   String get error_controller => 'Scanner controller not ready.';
@@ -126,6 +132,9 @@ class SEn extends S {
 
   @override
   String get title_order => 'Order Summary';
+
+  @override
+  String get order => 'Order';
 
   @override
   String get checkout_button => 'Place Order';

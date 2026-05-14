@@ -12,7 +12,7 @@ class SZh extends S {
   String get back => '后退';
 
   @override
-  String get app_title => 'IPOT 订单';
+  String get app_title => '订单';
 
   @override
   String get change_language => '更改语言';
@@ -33,10 +33,16 @@ class SZh extends S {
   String get chinese => '中文';
 
   @override
+  String get ready_order => '准备下单了吗？';
+
+  @override
   String get welcome_message => '你的美食梦想，从这里开始。';
 
   @override
   String get scan_button => '扫描桌位二维码';
+
+  @override
+  String get scan_info => '扫描桌上的二维码';
 
   @override
   String get error_controller => '扫描控制器未 saing.';
@@ -126,6 +132,9 @@ class SZh extends S {
 
   @override
   String get title_order => '订单摘要';
+
+  @override
+  String get order => '命令';
 
   @override
   String get checkout_button => '下订单';
