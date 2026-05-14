@@ -1,4 +1,4 @@
-# 🍽️ QR Order System
+# 🍽️ QR Order App
 
 [![Flutter Version](https://img.shields.io/badge/Flutter-3.x-blue.svg)](https://flutter.dev)
 [![Architecture](https://img.shields.io/badge/Architecture-Clean--Strict-green.svg)](#-architecture-overview)
@@ -96,3 +96,17 @@ Use these QR codes to test the application logic (scan via the in-app scanner):
 3.  **Run Application**:
     ```bash
     flutter run
+
+---
+
+
+## 📱 Download & Test (APK)
+
+You can download the latest debug build of this application directly from the **GitHub Actions** tab. This allows you to test the app on an Android device without setting up a local development environment.
+
+### Steps to download:
+1.  Go to the **Actions** tab in this repository.
+2.  Select the most recent **Android Build & Test** workflow run.
+3.  Scroll down to the **Artifacts** section at the bottom of the page.
+4.  Click on `qr-order-debug-apk` to download the ZIP file.
+5.  Extract the ZIP and install the `.apk` file on your Android device.
